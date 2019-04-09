@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6576159573545162399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6576159573545162385}
+  - component: {fileID: 6576159573545162384}
+  m_Layer: 0
+  m_Name: WhackAMoleController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6576159573545162385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6576159573545162399}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6576159573545162384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6576159573545162399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b52cfae587c138498dfff55b8c4c8a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1moleSprite: {fileID: 21300000, guid: 68cf542ffd4fea44893d6c50eab5fdc4, type: 3}
+  player2moleSprite: {fileID: 21300000, guid: 325f9ee35ee895c4592c36e7565a6e01, type: 3}
+  playerObject: {fileID: 1925755847501826721, guid: fce5f02c68bfc834693900383ae8f373,
+    type: 3}
+  TextGO1: {fileID: 0}
+  TextGO2: {fileID: 0}
+  RemainingTime: {fileID: 0}
+  secLeftUI: {fileID: 4489529420830527178, guid: ab0a720264ec8754fafd658c0fabd9b1,
+    type: 3}
+  backgroundText: {fileID: 7506474372903377380, guid: 7ea3866f84ea4f1429a23256c2b8f9e9,
+    type: 3}
+  readyText: {fileID: 2449465848859991093, guid: 9b923fc5f7bde1242a81f19ad6c8f81e,
+    type: 3}
+  canvas: {fileID: 0}
+  player1Color: {r: 0.10457456, g: 0.57360274, b: 0.8867924, a: 1}
+  player2Color: {r: 0.8867924, g: 0.11294055, b: 0.11294055, a: 1}
+  player1Helmet: blueHelmet
+  player2Helmet: redHelmet
+  backMultiScene: MultiGames
+  backSoloScene: SoloMult
