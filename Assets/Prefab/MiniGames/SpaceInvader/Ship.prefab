@@ -93,3 +93,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPlayer: {fileID: 0}
+  ammunition: {fileID: 4038437167869291847, guid: 40faae0daf725ea4f96647eae4b79d12,
+    type: 3}

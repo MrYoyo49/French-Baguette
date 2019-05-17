@@ -10,21 +10,23 @@ public class MolePlayer : MonoBehaviour
     public Color playerColor = new Color(255, 0, 0);
     int score = 0;
     public GameObject TextScore;
+    public string playerName = "Player";
     Sprite moleSprite;
     TextMeshProUGUI textScoreComponent;
     // Start is called before the first frame update
     void Start()
     {
         textScoreComponent = TextScore.GetComponent<TextMeshProUGUI>();
-        
+        textScoreComponent.color = playerColor;
     }
-    public void SetValues (int num, Color col, int score, GameObject textUI, Sprite moleSprite)
+    public void SetValues (int num, Color col, int score, string name,GameObject textUI, Sprite moleSprite)
     {
         playerNumber = num;
         playerColor = col;
         this.score = score;
         TextScore = textUI;
         this.moleSprite = moleSprite;
+        playerName = name;
     }
 
     public Sprite GetSprite()
@@ -41,5 +43,22 @@ public class MolePlayer : MonoBehaviour
     public void AddScore (int newScore)
     {
         score += newScore;
+    }
+    public int GetScore()
+    {
+        return score;
+    }
+    public Color GetColor()
+    {
+        return playerColor;
+    }
+    public void HideScore(bool hide)
+    {
+        TextScore.SetActive(!hide);
+    }
+
+    public string GetName()
+    {
+        return playerName;
     }
 }

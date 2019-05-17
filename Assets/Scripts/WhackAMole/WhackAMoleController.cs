@@ -6,13 +6,14 @@ using TMPro;
 public class WhackAMoleController : MonoBehaviour
 {
     bool multiplayerModeEnabled = true, lastSprintEnabled = false;
-    float initialTime = 90, remainingTime;
+    float initialTime = 60, remainingTime;
     private float nextSpawn = 1;
     private Hole[] holesList;
+    public static bool GameIsEnded = false;
     MolePlayer player1, player2;
     public Sprite player1moleSprite, player2moleSprite;
     public MolePlayer playerObject;
-    public GameObject TextGO1, TextGO2, RemainingTime, secLeftUI, backgroundText, readyText;
+    public GameObject TextGO1, TextGO2, RemainingTime, secLeftUI, backgroundText, readyText, gameOverUI;
     public Canvas canvas;
     public Color player1Color, player2Color;
     GameObject startText1, startText2, readyText1,readyText2;
@@ -29,18 +30,18 @@ public class WhackAMoleController : MonoBehaviour
         remainingTime = initialTime;
         Time.timeScale=0;
         player1 = Instantiate(playerObject);
-        player1.GetComponent<MolePlayer>().SetValues(1, new Color(255, 0, 0), 0, TextGO1,player1moleSprite);
+        player1.GetComponent<MolePlayer>().SetValues(1, player1Color, 0,"Player 1", TextGO1,player1moleSprite);
         player2 = Instantiate(playerObject);
-        player2.GetComponent<MolePlayer>().SetValues(0, new Color(0, 60, 255), 0, TextGO2,player2moleSprite);
+        player2.GetComponent<MolePlayer>().SetValues(0, player2Color, 0,"Player 2", TextGO2,player2moleSprite);
         //Start UI
         float height = backgroundText.GetComponent<SpriteRenderer>().sprite.bounds.size.y;
         startText1 = Instantiate(backgroundText, transform);
-        startText1.transform.position = new Vector2(0, - height / 1.6f);
-        startText1.GetComponentInChildren<TextMeshProUGUI>().text = "Touch the moles wearing your helmet <sprite name=" + player1Helmet + ">";
+        startText1.transform.position = new Vector2(0,  -height / 1.6f);
+        startText1.GetComponentInChildren<TextMeshProUGUI>().text = "Touch the moles wearing your helmet <sprite name=" + player2Helmet + ">";
         startText2 = Instantiate(backgroundText, transform);
-        startText2.transform.position = new Vector2(0, height / 1.6f);
+        startText2.transform.position = new Vector2(0,  height / 1.6f);
         startText2.transform.rotation = new Quaternion(0, 0, 180, 0);
-        startText2.GetComponentInChildren<TextMeshProUGUI>().text = "Touch the moles wearing your helmet <sprite name="+player2Helmet+">";
+        startText2.GetComponentInChildren<TextMeshProUGUI>().text = "Touch the moles wearing your helmet <sprite name="+player1Helmet+">";
 
     }
     void Start()
@@ -65,42 +66,22 @@ public class WhackAMoleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount != 0 && !hasStarted)
-        {
-            hasStarted = true;
-            readyText1 = Instantiate(readyText,transform);
-            //readyText1.GetComponent<TextMeshProUGUI>().color = player1Color;
-            readyText2 = Instantiate(readyText, transform);
-            readyText2.transform.position = startText2.transform.position;
-            readyText2.transform.rotation = startText2.transform.rotation;
-            readyText2.GetComponent<TextMeshProUGUI>().color = player2Color;
-            Destroy(startText2);
-            Destroy(startText1);
-            Time.timeScale = 1;
-        }
-        if (hasStarted==true && remainingTime<=initialTime-3f && !countdown)
-        {
-            countdown = true;
-            remainingTime = initialTime;
-        }
-        if ( remainingTime <= initialTime - 3f && countdown)
-        {
-            fullStart = true;
-            remainingTime = initialTime;
-        }
-        if (fullStart)
-            RemainingTime.GetComponent<TextMeshProUGUI>().text = "Time : " + Mathf.RoundToInt(remainingTime).ToString();
+        GameIntro();
         if (lastSprintEnabled == false && remainingTime <= 30) //enable lastSprint which is faster
         {
             lastSprintEnabled = true;
             Instantiate(secLeftUI,transform);
             globalSpeedModifier = 1.5f;
             nextSpawn = 2;
+           // player1.HideScore(true);
+            //player2.HideScore(true);
         }
         if (remainingTime <= 0)
             GameOver();
         if (nextSpawn <0)
             SpawnMoles(holesList);
+        if (GameIsEnded)
+            ExitOnClick();
     }
 
     private void FixedUpdate()
@@ -117,9 +98,47 @@ public class WhackAMoleController : MonoBehaviour
     
     void GameOver()
     {
-        SceneManager.LoadScene(backScene);
-    }
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0;
+        if (GetWinner() != null)
+        {
+            gameOverUI.GetComponentInChildren<TextMeshProUGUI>().text = "Winner is\n" + GetWinner().GetName() + " !";
+            gameOverUI.GetComponentInChildren<TextMeshProUGUI>().color = GetWinner().GetColor();
+        }
+        else
+            gameOverUI.GetComponentInChildren<TextMeshProUGUI>().text = "Equality !";
 
+    }
+    void GameIntro()
+    {
+        if (Input.touchCount != 0 && !hasStarted)
+        {
+            hasStarted = true;
+            readyText1 = Instantiate(readyText, transform);
+            readyText1.GetComponent<TextMeshProUGUI>().color = player1Color;
+            readyText1.transform.position = startText1.transform.position;
+            readyText1.transform.rotation = startText1.transform.rotation;
+            readyText2 = Instantiate(readyText, transform);
+            readyText2.transform.position = startText2.transform.position;
+            readyText2.transform.rotation = startText2.transform.rotation;
+            readyText2.GetComponent<TextMeshProUGUI>().color = player2Color;
+            Destroy(startText2);
+            Destroy(startText1);
+            Time.timeScale = 1;
+        }
+        if (hasStarted == true && remainingTime <= initialTime - 3f && !countdown)
+        {
+            countdown = true;
+            remainingTime = initialTime;
+        }
+        if (remainingTime <= initialTime - 3f && countdown && !fullStart)
+        {
+            fullStart = true;
+            remainingTime = initialTime;
+        }
+        if (fullStart)
+            RemainingTime.GetComponent<TextMeshProUGUI>().text = "Time : " + Mathf.RoundToInt(remainingTime).ToString();
+    }
     void SpawnMoles (Hole[] holes)
     {
         MolePlayer molePlayer;
@@ -185,6 +204,21 @@ public class WhackAMoleController : MonoBehaviour
         }
 
 
+    }
+
+    MolePlayer GetWinner()
+    {
+        if (player1.GetScore() > player2.GetScore())
+            return player1;
+        else if (player1.GetScore() < player2.GetScore())
+            return player2;
+        else 
+            return null;
+    }
+    void ExitOnClick()
+    {
+        if (Input.touchCount != 0)
+            SceneManager.LoadScene(backScene);
     }
     public void SetModeMultiplayer(bool enable)
     {

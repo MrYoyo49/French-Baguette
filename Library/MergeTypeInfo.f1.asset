@@ -93,8 +93,6 @@ MergeTypeInfo:
 - {id: 195, name: NavMeshAgent, ismulti: 0, baseid: 8, requires: '', conflicts: ''}
 - {id: 208, name: NavMeshObstacle, ismulti: 0, baseid: 8, requires: '', conflicts: ''}
 - {id: 191, name: OffMeshLink, ismulti: 1, baseid: 8, requires: '', conflicts: ''}
-- {id: 330, name: ParticleSystemForceField, ismulti: 0, baseid: 8, requires: 04000000,
-  conflicts: ''}
 - {id: 247, name: ConstantForce2D, ismulti: 1, baseid: 246, requires: 0400000032000000,
   conflicts: 360000003800000039000000}
 - {id: 320, name: PlayableDirector, ismulti: 0, baseid: 8, requires: '', conflicts: ''}
@@ -106,8 +104,6 @@ MergeTypeInfo:
   conflicts: ''}
 - {id: 218, name: Terrain, ismulti: 0, baseid: 8, requires: '', conflicts: ''}
 - {id: 328, name: VideoPlayer, ismulti: 1, baseid: 8, requires: 04000000, conflicts: ''}
-- {id: 2083052967, name: VisualEffect, ismulti: 0, baseid: 8, requires: 04000000,
-  conflicts: ''}
 - {id: 182, name: WindZone, ismulti: 0, baseid: 8, requires: '', conflicts: ''}
 - {id: 222, name: CanvasRenderer, ismulti: 0, baseid: 2, requires: '', conflicts: ''}
 - {id: 65, name: BoxCollider, ismulti: 1, baseid: 56, requires: 04000000, conflicts: 3200000035000000e6000000}
@@ -131,10 +127,15 @@ MergeTypeInfo:
 - {id: 33, name: MeshFilter, ismulti: 0, baseid: 2, requires: 04000000, conflicts: 66000000d4000000d894d41c}
 - {id: 192, name: OcclusionArea, ismulti: 0, baseid: 2, requires: '', conflicts: ''}
 - {id: 41, name: OcclusionPortal, ismulti: 0, baseid: 2, requires: '', conflicts: ''}
+- {id: 12, name: ParticleAnimator, ismulti: 0, baseid: 2, requires: 04000000, conflicts: ''}
+- {id: 15, name: EllipsoidParticleEmitter, ismulti: 0, baseid: 88, requires: 04000000,
+  conflicts: ''}
+- {id: 87, name: MeshParticleEmitter, ismulti: 0, baseid: 88, requires: '', conflicts: ''}
 - {id: 198, name: ParticleSystem, ismulti: 0, baseid: 2, requires: 04000000, conflicts: ''}
 - {id: 227, name: BillboardRenderer, ismulti: 0, baseid: 25, requires: 04000000, conflicts: ''}
 - {id: 120, name: LineRenderer, ismulti: 0, baseid: 25, requires: 04000000, conflicts: ''}
 - {id: 23, name: MeshRenderer, ismulti: 0, baseid: 25, requires: 04000000, conflicts: d4000000d894d41c}
+- {id: 26, name: ParticleRenderer, ismulti: 0, baseid: 25, requires: 04000000, conflicts: ''}
 - {id: 199, name: ParticleSystemRenderer, ismulti: 0, baseid: 25, requires: 04000000,
   conflicts: ''}
 - {id: 137, name: SkinnedMeshRenderer, ismulti: 0, baseid: 25, requires: 04000000,
@@ -146,7 +147,6 @@ MergeTypeInfo:
 - {id: 483693784, name: TilemapRenderer, ismulti: 0, baseid: 25, requires: 04000000bd22a86d,
   conflicts: 1700000021000000d4000000}
 - {id: 96, name: TrailRenderer, ismulti: 0, baseid: 25, requires: 04000000, conflicts: ''}
-- {id: 73398921, name: VFXRenderer, ismulti: 0, baseid: 25, requires: 04000000, conflicts: ''}
 - {id: 54, name: Rigidbody, ismulti: 0, baseid: 2, requires: 04000000, conflicts: 3200000035000000e60000006a010000}
 - {id: 50, name: Rigidbody2D, ismulti: 0, baseid: 2, requires: 04000000, conflicts: 3600000038000000390000004b000000}
 - {id: 102, name: TextMesh, ismulti: 0, baseid: 2, requires: 0400000017000000, conflicts: 21000000}
@@ -154,6 +154,8 @@ MergeTypeInfo:
 - {id: 224, name: RectTransform, ismulti: 0, baseid: 4, requires: '', conflicts: ''}
 - {id: 193, name: Tree, ismulti: 0, baseid: 2, requires: '', conflicts: ''}
 - {id: 362, name: WorldAnchor, ismulti: 0, baseid: 2, requires: 04000000, conflicts: 36000000}
+- {id: 76, name: WorldParticleCollider, ismulti: 0, baseid: 2, requires: 04000000,
+  conflicts: ''}
 - {id: 1, name: GameObject, ismulti: 0, baseid: 18, requires: '', conflicts: ''}
 - {id: 1102, name: AnimatorState, ismulti: 0, baseid: 130, requires: '', conflicts: ''}
 - {id: 1107, name: AnimatorStateMachine, ismulti: 0, baseid: 130, requires: '', conflicts: ''}
@@ -184,7 +186,6 @@ MergeTypeInfo:
 - {id: 1044, name: MovieImporter, ismulti: 0, baseid: 1003, requires: '', conflicts: ''}
 - {id: 1034, name: NativeFormatImporter, ismulti: 0, baseid: 1003, requires: '', conflicts: ''}
 - {id: 1050, name: PluginImporter, ismulti: 0, baseid: 1003, requires: '', conflicts: ''}
-- {id: 468431735, name: PrefabImporter, ismulti: 0, baseid: 1003, requires: '', conflicts: ''}
 - {id: 2089858483, name: ScriptedImporter, ismulti: 0, baseid: 1003, requires: '',
   conflicts: ''}
 - {id: 1007, name: ShaderImporter, ismulti: 0, baseid: 1003, requires: '', conflicts: ''}
@@ -194,8 +195,6 @@ MergeTypeInfo:
 - {id: 1006, name: TextureImporter, ismulti: 0, baseid: 1003, requires: '', conflicts: ''}
 - {id: 1042, name: TrueTypeFontImporter, ismulti: 0, baseid: 1003, requires: '', conflicts: ''}
 - {id: 1127, name: VideoClipImporter, ismulti: 0, baseid: 1003, requires: '', conflicts: ''}
-- {id: 2058629510, name: VisualEffectImporter, ismulti: 0, baseid: 1003, requires: '',
-  conflicts: ''}
 - {id: 41386430, name: AssetImporterLog, ismulti: 0, baseid: 130, requires: '', conflicts: ''}
 - {id: 240, name: AudioMixer, ismulti: 0, baseid: 130, requires: '', conflicts: ''}
 - {id: 241, name: AudioMixerController, ismulti: 0, baseid: 240, requires: '', conflicts: ''}
@@ -257,7 +256,6 @@ MergeTypeInfo:
 - {id: 687078895, name: SpriteAtlas, ismulti: 0, baseid: 130, requires: '', conflicts: ''}
 - {id: 184, name: SubstanceArchive, ismulti: 0, baseid: 130, requires: '', conflicts: ''}
 - {id: 156, name: TerrainData, ismulti: 0, baseid: 130, requires: '', conflicts: ''}
-- {id: 1953259897, name: TerrainLayer, ismulti: 0, baseid: 130, requires: '', conflicts: ''}
 - {id: 49, name: TextAsset, ismulti: 0, baseid: 130, requires: '', conflicts: ''}
 - {id: 1152215463, name: AssemblyDefinitionAsset, ismulti: 0, baseid: 49, requires: '',
   conflicts: ''}
@@ -277,22 +275,22 @@ MergeTypeInfo:
 - {id: 187, name: Texture2DArray, ismulti: 0, baseid: 27, requires: '', conflicts: ''}
 - {id: 117, name: Texture3D, ismulti: 0, baseid: 27, requires: '', conflicts: ''}
 - {id: 329, name: VideoClip, ismulti: 0, baseid: 130, requires: '', conflicts: ''}
-- {id: 2058629509, name: VisualEffectAsset, ismulti: 0, baseid: 130, requires: '',
-  conflicts: ''}
-- {id: 2058629511, name: VisualEffectResource, ismulti: 0, baseid: 130, requires: '',
-  conflicts: ''}
 - {id: 1002, name: EditorExtensionImpl, ismulti: 0, baseid: 0, requires: '', conflicts: ''}
 - {id: 159, name: EditorSettings, ismulti: 0, baseid: 0, requires: '', conflicts: ''}
 - {id: 1051, name: EditorUserBuildSettings, ismulti: 0, baseid: 0, requires: '', conflicts: ''}
 - {id: 162, name: EditorUserSettings, ismulti: 0, baseid: 0, requires: '', conflicts: ''}
 - {id: 11, name: AudioManager, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
 - {id: 141, name: BuildSettings, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
+- {id: 301, name: CloudWebServicesManager, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
 - {id: 236, name: ClusterInputManager, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
+- {id: 304, name: CrashReportManager, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
 - {id: 98, name: DelayedCallManager, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
 - {id: 30, name: GraphicsSettings, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
 - {id: 13, name: InputManager, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
 - {id: 116, name: MonoManager, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
 - {id: 126, name: NavMeshProjectSettings, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
+- {id: 305, name: PerformanceReportingManager, ismulti: 0, baseid: 6, requires: '',
+  conflicts: ''}
 - {id: 19, name: Physics2DSettings, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
 - {id: 55, name: PhysicsManager, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
 - {id: 129, name: PlayerSettings, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
@@ -304,8 +302,8 @@ MergeTypeInfo:
 - {id: 1403656975, name: StreamingManager, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
 - {id: 78, name: TagManager, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
 - {id: 5, name: TimeManager, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
+- {id: 303, name: UnityAnalyticsManager, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
 - {id: 310, name: UnityConnectSettings, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
-- {id: 937362698, name: VFXManager, ismulti: 0, baseid: 6, requires: '', conflicts: ''}
 - {id: 157, name: LightmapSettings, ismulti: 0, baseid: 3, requires: '', conflicts: ''}
 - {id: 196, name: NavMeshSettings, ismulti: 0, baseid: 3, requires: '', conflicts: ''}
 - {id: 29, name: OcclusionCullingSettings, ismulti: 0, baseid: 3, requires: '', conflicts: ''}
@@ -315,8 +313,7 @@ MergeTypeInfo:
 - {id: 1126, name: PackedAssets, ismulti: 0, baseid: 0, requires: '', conflicts: ''}
 - {id: 877146078, name: PlatformModuleSetup, ismulti: 0, baseid: 0, requires: '',
   conflicts: ''}
-- {id: 1001480554, name: Prefab, ismulti: 0, baseid: 0, requires: '', conflicts: ''}
-- {id: 1001, name: PrefabInstance, ismulti: 0, baseid: 0, requires: '', conflicts: ''}
+- {id: 1001, name: Prefab, ismulti: 0, baseid: 0, requires: '', conflicts: ''}
 - {id: 1386491679, name: PresetManager, ismulti: 0, baseid: 0, requires: '', conflicts: ''}
 - {id: 1571458007, name: RenderPassAttachment, ismulti: 0, baseid: 0, requires: '',
   conflicts: ''}
