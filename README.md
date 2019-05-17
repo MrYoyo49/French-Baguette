@@ -1,2 +1,2 @@
 # French-Baguette
-Creation of several mini-games on Android
+Creation of several mini-games on Android using Unity
