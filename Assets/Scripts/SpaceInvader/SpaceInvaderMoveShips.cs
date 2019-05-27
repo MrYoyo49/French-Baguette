@@ -24,16 +24,17 @@ public class SpaceInvaderMoveShips : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetTouch();
+        if (Time.timeScale==1 && gameObject.GetComponent<SpaceInvaderGenerateInvaders>().HasStarted())
+            GetTouch();
     }
 
     private void MoveShip(GameObject ship, Vector2 coordinate)
     {
         Vector2 TouchPosition = myCamera.ScreenToWorldPoint(coordinate);//convert in world unit
         if (TouchPosition.x +tolerance< ship.transform.position.x)
-            { ship.transform.position = new Vector2(ship.transform.position.x - ship.GetComponent<Ship>().GetSpeed(), ship.transform.position.y); }
+            { ship.transform.position = new Vector2(ship.transform.position.x - ship.GetComponent<Ship>().GetSpeed(), ship.transform.position.y) * Time.timeScale; }
         else if (TouchPosition.x -tolerance> ship.transform.position.x)
-            { ship.transform.position = new Vector2(ship.transform.position.x + ship.GetComponent<Ship>().GetSpeed(), ship.transform.position.y); }
+            { ship.transform.position = new Vector2(ship.transform.position.x + ship.GetComponent<Ship>().GetSpeed(), ship.transform.position.y) * Time.timeScale; }
     }
 
     private void GetTouch()

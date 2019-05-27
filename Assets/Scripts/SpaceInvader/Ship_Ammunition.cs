@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Ship_Ammunition : MonoBehaviour
 {
-    float std_Speed = 1.5f;
+    float std_Speed = 5f;
     Vector2 limitScreenSize;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +38,25 @@ public class Ship_Ammunition : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Ouch");
+        if (collision.gameObject.GetComponent<Invader>() != null)// if collide with invader
+        {
+            player.GetComponent<MolePlayer>().AddScore(collision.gameObject.GetComponent<Invader>().GetScore());
+            collision.gameObject.GetComponent<Invader>().explode(Mathf.Sign(std_Speed));
+        }
+        if (collision.gameObject.GetComponent<ExplodedInvader>() != null)// if collide with expolded invader
+        {
+            player.GetComponent<MolePlayer>().AddScore(collision.gameObject.GetComponent<ExplodedInvader>().GetScore());
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.GetComponent<Ship>() != null && collision.gameObject.GetComponent<Ship>().myPlayer!=player)// if collide with fork
+        {
+            player.GetComponent<MolePlayer>().AddScore(30);
+        }
+        if (collision.gameObject.GetComponent<Ship>() == null || collision.gameObject.GetComponent<Ship>().myPlayer != player)
+            Destroy(gameObject);
+    }
+    void OnBecameInvisible()
+    {
         Destroy(gameObject);
     }
 }

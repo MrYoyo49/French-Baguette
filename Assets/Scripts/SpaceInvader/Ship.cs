@@ -6,7 +6,7 @@ public class Ship : MonoBehaviour
 {
 
     public GameObject myPlayer, ammunition;
-    float speed = 0.3f,shoot_coolddown, shoot_coolddown_time=1f;
+    float speed = 0.5f,shoot_coolddown, shoot_coolddown_time=0.7f;
     Vector2 limitScreenSize;
     // Start is called before the first frame update
     void Start()
@@ -33,6 +33,7 @@ public class Ship : MonoBehaviour
             GameObject sh = Instantiate(ammunition);
             sh.transform.position = transform.position;
             sh.transform.rotation = transform.rotation;
+            sh.GetComponent<Ship_Ammunition>().player = myPlayer;
             if (transform.rotation == new Quaternion (0,0, 180,0))
                  sh.GetComponent<Ship_Ammunition>().ReverseSpeed();
             sh.GetComponent<Ship_Ammunition>().SetLimitSreenSize(limitScreenSize);
@@ -52,4 +53,14 @@ public class Ship : MonoBehaviour
     {
         limitScreenSize = v;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<ExplodedInvader>() != null)// if collide with expolded invader
+        {
+            myPlayer.GetComponent<MolePlayer>().AddScore(-10);
+            Destroy(collision.gameObject);
+        }
+    }
+
 }

@@ -14,7 +14,6 @@ public class WhackAMoleController : MonoBehaviour
     public Sprite player1moleSprite, player2moleSprite;
     public MolePlayer playerObject;
     public GameObject TextGO1, TextGO2, RemainingTime, secLeftUI, backgroundText, readyText, gameOverUI;
-    public Canvas canvas;
     public Color player1Color, player2Color;
     GameObject startText1, startText2, readyText1,readyText2;
     public string player1Helmet, player2Helmet;
@@ -70,7 +69,7 @@ public class WhackAMoleController : MonoBehaviour
         if (lastSprintEnabled == false && remainingTime <= 30) //enable lastSprint which is faster
         {
             lastSprintEnabled = true;
-            Instantiate(secLeftUI,transform);
+            //Instantiate(secLeftUI,transform);
             globalSpeedModifier = 1.5f;
             nextSpawn = 2;
            // player1.HideScore(true);
