@@ -1,7 +1,7 @@
 # French-Baguette
 Creation of several mini-games on Android using Unity.
 
-## To Launch the game:
+## How To Launch the game:
 1 - open this entire folder with unity<br>
 2 - compile the game for Android<br>
 3 - upload the .apk file on your phone<br>
