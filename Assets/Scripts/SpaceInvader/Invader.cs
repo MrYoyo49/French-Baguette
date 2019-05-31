@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Invader : MonoBehaviour
 {
-    float baseSpeed = 0.2f, speed;
+    float baseSpeed = 0.3f, speed;
     int score=10;
     Vector2 nextPosition, limitScreenSize;
     public Camera myCamera;
     public GameObject explodedPart;
+    bool HasBeenBoosted=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +23,6 @@ public class Invader : MonoBehaviour
     {
         nextPosition.x += speed*Time.timeScale;
         transform.position = nextPosition;
-       // if (transform.position.x - GetComponent<SpriteRenderer>().sprite.bounds.size.x >= limitScreenSize.x || transform.position.x < -limitScreenSize.x - GetComponent<SpriteRenderer>().sprite.bounds.size.x)
-        //    Object.Destroy(gameObject);
             
     }
     void OnBecameInvisible()
@@ -48,6 +47,12 @@ public class Invader : MonoBehaviour
         GameObject inv1 = Instantiate(explodedPart, transform.position, Quaternion.AngleAxis(180 * sign, Vector3.forward));
         GameObject inv2 = Instantiate(explodedPart, transform.position, Quaternion.AngleAxis(45+180*sign, Vector3.forward));
         GameObject inv3 = Instantiate(explodedPart, transform.position, Quaternion.AngleAxis(-45+180*sign,Vector3.forward));
+        if (HasBeenBoosted)
+        {
+            inv1.GetComponent<ExplodedInvader>().Boost();
+            inv2.GetComponent<ExplodedInvader>().Boost();
+            inv3.GetComponent<ExplodedInvader>().Boost();
+        }
         Destroy(gameObject);
         return score;
     }
@@ -62,5 +67,16 @@ public class Invader : MonoBehaviour
     {
         return score;
     }
-
+    public void ReverseSpeed(bool reverse)
+    {
+        if (reverse)
+        {
+            baseSpeed *= -1;
+        }
+    }
+    public void Boost()
+    {
+            baseSpeed *= 3;
+        HasBeenBoosted = true;
+    }
 }

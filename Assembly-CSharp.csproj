@@ -61,15 +61,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Hockey\Boundaries.cs" />
+    <Compile Include="Assets\Scripts\Hockey\Direction.cs" />
+    <Compile Include="Assets\Scripts\Hockey\HockeyController.cs" />
     <Compile Include="Assets\Scripts\Hockey\Joystick.cs" />
-    <Compile Include="Assets\Scripts\Hockey\Joystick2.cs" />
+    <Compile Include="Assets\Scripts\Hockey\MovePuck.cs" />
+    <Compile Include="Assets\Scripts\Hockey\Scores.cs" />
     <Compile Include="Assets\Scripts\Menu\GoToSettings.cs" />
     <Compile Include="Assets\Scripts\Menu\KeepMusic.cs" />
     <Compile Include="Assets\Scripts\Menu\ScreenRotate.cs" />
     <Compile Include="Assets\Scripts\Menu\quit.cs" />
     <Compile Include="Assets\Scripts\SpaceInvader\ExplodedInvader.cs" />
     <Compile Include="Assets\Scripts\SpaceInvader\Invader.cs" />
-    <Compile Include="Assets\Scripts\SpaceInvader\InvaderController.cs" />
     <Compile Include="Assets\Scripts\SpaceInvader\InvaderPlayer.cs" />
     <Compile Include="Assets\Scripts\SpaceInvader\Ship.cs" />
     <Compile Include="Assets\Scripts\SpaceInvader\Ship_Ammunition.cs" />

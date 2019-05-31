@@ -15,7 +15,7 @@ public class SpaceInvaderMoveShips : MonoBehaviour
     void Start()
     {
         MiddleDivider = Screen.height /2;
-        tolerance = 0.1f;
+        tolerance = 0.3f;
         nomanslandtolerance = 0.2f;
         ship1.GetComponent<Ship>().SetLimitSreenSize(myCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)));
         ship2.GetComponent<Ship>().SetLimitSreenSize(myCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)));
@@ -32,9 +32,9 @@ public class SpaceInvaderMoveShips : MonoBehaviour
     {
         Vector2 TouchPosition = myCamera.ScreenToWorldPoint(coordinate);//convert in world unit
         if (TouchPosition.x +tolerance< ship.transform.position.x)
-            { ship.transform.position = new Vector2(ship.transform.position.x - ship.GetComponent<Ship>().GetSpeed(), ship.transform.position.y) * Time.timeScale; }
+            { ship.transform.position = new Vector2(ship.transform.position.x - ship.GetComponent<Ship>().GetSpeed() * Time.deltaTime, ship.transform.position.y); }
         else if (TouchPosition.x -tolerance> ship.transform.position.x)
-            { ship.transform.position = new Vector2(ship.transform.position.x + ship.GetComponent<Ship>().GetSpeed(), ship.transform.position.y) * Time.timeScale; }
+            { ship.transform.position = new Vector2(ship.transform.position.x + ship.GetComponent<Ship>().GetSpeed() * Time.deltaTime, ship.transform.position.y); }
     }
 
     private void GetTouch()

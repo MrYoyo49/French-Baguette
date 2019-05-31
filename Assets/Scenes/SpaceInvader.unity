@@ -135,12 +135,12 @@ PrefabInstance:
     - target: {fileID: 3648572062226340431, guid: 95c5d79e398a1cb41873381e3c859ec4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3648572062226340431, guid: 95c5d79e398a1cb41873381e3c859ec4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.57
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3648572062226340431, guid: 95c5d79e398a1cb41873381e3c859ec4,
         type: 3}
@@ -208,6 +208,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3648572062226340430, guid: 95c5d79e398a1cb41873381e3c859ec4,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3648572062226340425, guid: 95c5d79e398a1cb41873381e3c859ec4,
         type: 3}
       propertyPath: myPlayer
@@ -228,7 +233,7 @@ GameObject:
   - component: {fileID: 379195682}
   - component: {fileID: 379195684}
   m_Layer: 0
-  m_Name: Cepelinai
+  m_Name: CepelinaiBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,7 +307,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_TargetDisplay: 0
 --- !u!224 &379195683
 RectTransform:
@@ -381,7 +386,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -435,11 +440,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1211486391}
     m_Modifications:
-    - target: {fileID: 3588014607512754153, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
-        type: 3}
-      propertyPath: m_Name
-      value: ResumeButton
-      objectReference: {fileID: 0}
     - target: {fileID: 1015130421582452254, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -544,6 +544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3588014607512754153, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
+        type: 3}
+      propertyPath: m_Name
+      value: ResumeButton
       objectReference: {fileID: 0}
     - target: {fileID: 7743325924731206516, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
         type: 3}
@@ -810,11 +815,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1754673070}
     m_Modifications:
-    - target: {fileID: 8651899202141283553, guid: 708f61106c0f5414b865914a763d45f5,
-        type: 3}
-      propertyPath: m_Name
-      value: Pause
-      objectReference: {fileID: 0}
     - target: {fileID: 8651899202141283552, guid: 708f61106c0f5414b865914a763d45f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -919,6 +919,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651899202141283553, guid: 708f61106c0f5414b865914a763d45f5,
+        type: 3}
+      propertyPath: m_Name
+      value: Pause
       objectReference: {fileID: 0}
     - target: {fileID: 8651899202141283555, guid: 708f61106c0f5414b865914a763d45f5,
         type: 3}
@@ -1827,11 +1832,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1211486391}
     m_Modifications:
-    - target: {fileID: 3588014607512754153, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
-        type: 3}
-      propertyPath: m_Name
-      value: ExitButton
-      objectReference: {fileID: 0}
     - target: {fileID: 1015130421582452254, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1936,6 +1936,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3588014607512754153, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
+        type: 3}
+      propertyPath: m_Name
+      value: ExitButton
       objectReference: {fileID: 0}
     - target: {fileID: 7743325924731206516, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
         type: 3}
@@ -2120,7 +2125,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &1754673070
 RectTransform:
@@ -2190,7 +2195,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.92, y: 2.5}
+    oldSize: {x: 0.61333334, y: 1.6666666}
     newSize: {x: 0.92, y: 2.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2228,7 +2233,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.92, y: 2.5}
+    oldSize: {x: 0.61333334, y: 1.6666666}
     newSize: {x: 0.92, y: 2.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2252,12 +2257,12 @@ PrefabInstance:
     - target: {fileID: 3648572062226340431, guid: 95c5d79e398a1cb41873381e3c859ec4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.04
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3648572062226340431, guid: 95c5d79e398a1cb41873381e3c859ec4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.48
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 3648572062226340431, guid: 95c5d79e398a1cb41873381e3c859ec4,
         type: 3}
@@ -2324,6 +2329,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648572062226340430, guid: 95c5d79e398a1cb41873381e3c859ec4,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3648572062226340425, guid: 95c5d79e398a1cb41873381e3c859ec4,
         type: 3}

@@ -6,7 +6,7 @@ public class Ship : MonoBehaviour
 {
 
     public GameObject myPlayer, ammunition;
-    float speed = 0.5f,shoot_coolddown, shoot_coolddown_time=0.7f;
+    float speed = 12f,shoot_coolddown, shoot_coolddown_time=0.7f;
     Vector2 limitScreenSize;
     // Start is called before the first frame update
     void Start()

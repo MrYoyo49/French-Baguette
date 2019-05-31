@@ -9,7 +9,7 @@ public class WhackAMoleController : MonoBehaviour
     float initialTime = 60, remainingTime;
     private float nextSpawn = 1;
     private Hole[] holesList;
-    public static bool GameIsEnded = false;
+    static bool GameIsEnded = false;
     MolePlayer player1, player2;
     public Sprite player1moleSprite, player2moleSprite;
     public MolePlayer playerObject;
@@ -36,11 +36,11 @@ public class WhackAMoleController : MonoBehaviour
         float height = backgroundText.GetComponent<SpriteRenderer>().sprite.bounds.size.y;
         startText1 = Instantiate(backgroundText, transform);
         startText1.transform.position = new Vector2(0,  -height / 1.6f);
-        startText1.GetComponentInChildren<TextMeshProUGUI>().text = "Touch the moles wearing your helmet <sprite name=" + player2Helmet + ">";
+        startText1.GetComponentInChildren<TextMeshProUGUI>().text = "Touch the moles wearing your helmet <sprite=\"Icons\" name=" + player2Helmet + ">";
         startText2 = Instantiate(backgroundText, transform);
         startText2.transform.position = new Vector2(0,  height / 1.6f);
         startText2.transform.rotation = new Quaternion(0, 0, 180, 0);
-        startText2.GetComponentInChildren<TextMeshProUGUI>().text = "Touch the moles wearing your helmet <sprite name="+player1Helmet+">";
+        startText2.GetComponentInChildren<TextMeshProUGUI>().text = "Touch the moles wearing your helmet <sprite=\"Icons\" name=" + player1Helmet+">";
 
     }
     void Start()
@@ -79,8 +79,8 @@ public class WhackAMoleController : MonoBehaviour
             GameOver();
         if (nextSpawn <0)
             SpawnMoles(holesList);
-        if (GameIsEnded)
-            ExitOnClick();
+        if (GameIsEnded && Input.touchCount!=0)
+            SceneManager.LoadScene(backScene);
     }
 
     private void FixedUpdate()
@@ -98,6 +98,7 @@ public class WhackAMoleController : MonoBehaviour
     void GameOver()
     {
         gameOverUI.SetActive(true);
+        GameIsEnded = true;
         Time.timeScale = 0;
         if (GetWinner() != null)
         {
@@ -106,7 +107,6 @@ public class WhackAMoleController : MonoBehaviour
         }
         else
             gameOverUI.GetComponentInChildren<TextMeshProUGUI>().text = "Equality !";
-
     }
     void GameIntro()
     {
@@ -182,24 +182,24 @@ public class WhackAMoleController : MonoBehaviour
         if (!lastSprintEnabled)// set when next mole will be added
         {
             if (rdn < 0.5f) 
-                nextSpawn = 0.8f;
+                nextSpawn = 0.5f;
             else if (rdn < 0.8f)
-                nextSpawn = 0.4f;
+                nextSpawn = 0.2f;
             else if (rdn < 0.95f)
                 nextSpawn = 0;
             else
-                nextSpawn = 1.5f;
+                nextSpawn = 1f;
         }
         else
         {
             if (rdn < 0.5f)
-                nextSpawn = 0.4f;
+                nextSpawn = 0.3f;
             else if (rdn < 0.7f)
-                nextSpawn = 0.2f;
+                nextSpawn = 0.1f;
             else if (rdn < 0.9f)
                 nextSpawn = 0;
             else
-                nextSpawn = 1;
+                nextSpawn = 0.7f;
         }
 
 
@@ -214,13 +214,13 @@ public class WhackAMoleController : MonoBehaviour
         else 
             return null;
     }
-    void ExitOnClick()
-    {
-        if (Input.touchCount != 0)
-            SceneManager.LoadScene(backScene);
-    }
+
     public void SetModeMultiplayer(bool enable)
     {
         multiplayerModeEnabled = enable;
+    }
+    public static  bool GetGameIsEnded()
+    {
+        return GameIsEnded;
     }
 }

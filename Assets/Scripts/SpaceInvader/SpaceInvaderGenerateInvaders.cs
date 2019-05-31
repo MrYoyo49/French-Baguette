@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class SpaceInvaderGenerateInvaders : MonoBehaviour
 {
+
     float nextSpawn = 1f;
     public GameObject invader, ship1,ship2;
     public Camera myCamera;
     float initialTime = 60, remainingTime;
+    static bool GameIsEnded = false;
     public GameObject playerObject;
     GameObject player1, player2;
     public Color player1Color, player2Color;
@@ -16,7 +18,6 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
     public Sprite player1Sprite, player2Sprite;
     GameObject startText1, startText2, readyText1, readyText2;
     bool hasStarted = false, countdown = false, fullStart = false, lastSprintEnabled = false;
-    public static bool GameIsEnded = false;
     public string backScene;
     private void Awake()
     {
@@ -30,11 +31,11 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
         float height = backgroundText.GetComponent<SpriteRenderer>().sprite.bounds.size.y;
         startText1 = Instantiate(backgroundText, transform);
         startText1.transform.position = new Vector2(0, -height / 1.6f);
-        startText1.GetComponentInChildren<TextMeshProUGUI>().text = "Move your fork by touching the screen and shoot by releasing it ! <sprite name="  + ">";
+        startText1.GetComponentInChildren<TextMeshProUGUI>().text = "Move <sprite=\"Icons\" name=blueFork> by touching the screen and shoot <sprite=\"Icons\" name=bacon>by releasing !";
         startText2 = Instantiate(backgroundText, transform);
         startText2.transform.position = new Vector2(0, height / 1.6f);
         startText2.transform.rotation = new Quaternion(0, 0, 180, 0);
-        startText2.GetComponentInChildren<TextMeshProUGUI>().text = "Move your fork by touching the screen and shoot by releasing it ! <sprite name=" + ">";
+        startText2.GetComponentInChildren<TextMeshProUGUI>().text = "Move <sprite=\"Icons\" name=redFork> by touching the screen and shoot <sprite=\"Icons\" name=bacon>by releasing !";
         ship1.GetComponent<Ship>().myPlayer = player1;
         ship2.GetComponent<Ship>().myPlayer = player2;
     }
@@ -54,8 +55,8 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
         }
         if (remainingTime <= 0)
             GameOver();
-        if (GameIsEnded)
-            ExitOnClick();
+        if (GameIsEnded && Input.touchCount != 0)
+            SceneManager.LoadScene(backScene);
     }
     private void FixedUpdate()
     {
@@ -64,15 +65,33 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
         remainingTime -= Time.deltaTime;
         if (nextSpawn <= 0)
         {
-            nextSpawn = 2f;
+            nextSpawn = 1f;
             SpawnInvader(invader);
         }
 
     }
     private void SpawnInvader(GameObject newInvader)
     {
-        GameObject inv=Instantiate(newInvader, new Vector2(-8,0),new Quaternion());
+        Vector2 position;
+        float rotation = 0;
+        bool reverse = false;
+        if (Random.Range(0, 2) < 1)
+        {
+            position = new Vector2(-8, -1);
+        }
+        else
+        {
+            rotation = 90;
+            position = new Vector2(8, 1);
+            reverse = true;
+        }
+        GameObject inv=Instantiate(newInvader,position,new Quaternion(0,0,rotation,0));
         inv.GetComponent<Invader>().myCamera = myCamera;
+        inv.GetComponent<Invader>().ReverseSpeed(reverse);
+        if (Random.Range(0f, 1f) >= 0.9f)
+        {
+            inv.GetComponent<Invader>().Boost();
+        }
     }
 
     void GameIntro()
@@ -109,6 +128,7 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
     void GameOver()
     {
         gameOverUI.SetActive(true);
+        GameIsEnded = true;
         Time.timeScale = 0;
         if (GetWinner() != null)
         {
@@ -117,7 +137,6 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
         }
         else
             gameOverUI.GetComponentInChildren<TextMeshProUGUI>().text = "Equality !";
-
     }
     public bool HasStarted()
     {
@@ -132,9 +151,8 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
          else
              return null;
     }
-    void ExitOnClick()
+    public static bool GetGameIsEnded()
     {
-        if (Input.touchCount != 0)
-            SceneManager.LoadScene(backScene);
+        return GameIsEnded;
     }
 }
