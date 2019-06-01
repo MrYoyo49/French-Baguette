@@ -19,7 +19,7 @@ public class WhackAMoleController : MonoBehaviour
     public string player1Helmet, player2Helmet;
     float playerNumMod = 0.5f;
     bool hasStarted = false, countdown=false, fullStart =false;
-    public static float globalSpeedModifier = 1f;
+    public static float globalSpeedModifier;
     public string backMultiScene, backSoloScene;
     string backScene;
 
@@ -27,6 +27,7 @@ public class WhackAMoleController : MonoBehaviour
     private void Awake()
     {
         remainingTime = initialTime;
+        globalSpeedModifier = 1.2f;
         Time.timeScale=0;
         player1 = Instantiate(playerObject);
         player1.GetComponent<MolePlayer>().SetValues(1, player1Color, 0,"Player 1", TextGO1,player1moleSprite);
@@ -70,7 +71,7 @@ public class WhackAMoleController : MonoBehaviour
         {
             lastSprintEnabled = true;
             //Instantiate(secLeftUI,transform);
-            globalSpeedModifier = 1.5f;
+            globalSpeedModifier = 1.8f;
             nextSpawn = 2;
            // player1.HideScore(true);
             //player2.HideScore(true);
@@ -125,7 +126,7 @@ public class WhackAMoleController : MonoBehaviour
     }
     void GameIntro()
     {
-        if (Input.touchCount != 0 && !hasStarted)
+        if (Input.touchCount != 0 && !hasStarted && !(startText1 is null))
         {
             hasStarted = true;
             readyText1 = Instantiate(readyText, transform);
@@ -211,7 +212,7 @@ public class WhackAMoleController : MonoBehaviour
                 nextSpawn = 0.3f;
             else if (rdn < 0.7f)
                 nextSpawn = 0.1f;
-            else if (rdn < 0.9f)
+            else if (rdn < 0.95f)
                 nextSpawn = 0;
             else
                 nextSpawn = 0.7f;

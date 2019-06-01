@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     public GameObject menuPanelUI;
+    public Component controller;
+
     public void PauseGame()
     {   
         if (!WhackAMoleController.GetGameIsEnded() || !SpaceInvaderGenerateInvaders.GetGameIsEnded() || !HockeyController.GetGameIsEnded())

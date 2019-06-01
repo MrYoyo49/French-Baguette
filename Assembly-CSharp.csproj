@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Various\Pause.cs" />
     <Compile Include="Assets\Scripts\Various\Resume.cs" />
     <Compile Include="Assets\Scripts\Various\SetFalse.cs" />
+    <Compile Include="Assets\Scripts\Various\TimeScale.cs" />
     <Compile Include="Assets\Scripts\Various\TimedAutoDestruction.cs" />
     <Compile Include="Assets\Scripts\WhackAMole\Hole.cs" />
     <Compile Include="Assets\Scripts\WhackAMole\Mole.cs" />

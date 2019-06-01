@@ -80,7 +80,7 @@ public class HockeyController : MonoBehaviour
     }
     void GameIntro()
     {
-        if (Input.touchCount != 0 && !hasStarted)
+        if (Input.touchCount != 0 && !hasStarted && !(startText1 is null))
         {
             hasStarted = true;
             readyText1 = Instantiate(readyText, transform);

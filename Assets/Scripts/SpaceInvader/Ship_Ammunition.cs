@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ship_Ammunition : MonoBehaviour
 {
-    float std_Speed = 5f;
+    float std_Speed = 12f;
     Vector2 limitScreenSize;
     public GameObject player;
     // Start is called before the first frame update
@@ -50,7 +50,7 @@ public class Ship_Ammunition : MonoBehaviour
         }
         if (collision.gameObject.GetComponent<Ship>() != null && collision.gameObject.GetComponent<Ship>().myPlayer!=player)// if collide with fork
         {
-            player.GetComponent<MolePlayer>().AddScore(30);
+            player.GetComponent<MolePlayer>().AddScore(50);
         }
         if (collision.gameObject.GetComponent<Ship>() == null || collision.gameObject.GetComponent<Ship>().myPlayer != player)
             Destroy(gameObject);

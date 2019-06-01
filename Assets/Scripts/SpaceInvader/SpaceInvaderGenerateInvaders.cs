@@ -9,7 +9,7 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
     float nextSpawn = 1f;
     public GameObject invader, ship1,ship2;
     public Camera myCamera;
-    float initialTime = 60, remainingTime;
+    float initialTime = 60, remainingTime,mod = 0f, boostTreshold;
     static bool GameIsEnded = false, challbool=false;
     public GameObject playerObject;
     GameObject player1, player2;
@@ -19,9 +19,12 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
     GameObject startText1, startText2, readyText1, readyText2;
     bool hasStarted = false, countdown = false, fullStart = false, lastSprintEnabled = false;
     public string backScene;
+
+
     private void Awake()
     {
         remainingTime = initialTime;
+        boostTreshold = 0.93f;
         Time.timeScale = 0;
         player1 = Instantiate(playerObject);
         player1.GetComponent<MolePlayer>().SetValues(1, player1Color, 0, "Player 1", TextGO1, player1Sprite);
@@ -47,11 +50,8 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
         if (lastSprintEnabled == false && remainingTime <= 30) //enable lastSprint which is faster
         {
             lastSprintEnabled = true;
-            //Instantiate(secLeftUI, transform);
-            //globalSpeedModifier = 1.5f;
-            nextSpawn = 2;
-             //player1.HideScore(true);
-             //player2.HideScore(true);
+            nextSpawn = 1.5f;
+            boostTreshold = 0.8f;
         }
         if (remainingTime <= 0)
             GameOver();
@@ -66,30 +66,37 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
             Challenge.setval(getwin());
             SceneManager.LoadScene(Challenge.gamerd());
         }
-    }
-    private void FixedUpdate()
-    {
+
         if (fullStart)
             nextSpawn -= Time.deltaTime;
         remainingTime -= Time.deltaTime;
         if (nextSpawn <= 0)
         {
-            nextSpawn = 1f;
+            if (!lastSprintEnabled)
+            {
+                nextSpawn = 1.2f;
+            }
+            else
+            {
+                nextSpawn = 0.8f;
+            }
             SpawnInvader(invader);
         }
-
     }
+
     private void SpawnInvader(GameObject newInvader)
     {
         Vector2 position;
         float rotation = 0;
         bool reverse = false;
-        if (Random.Range(0, 2) < 1)
+        if ((float)Random.Range(0, 2)+mod < 0.5f)
         {
+            mod += 0.1f;
             position = new Vector2(-8, -1);
         }
         else
         {
+            mod -= 0.1f;
             rotation = 90;
             position = new Vector2(8, 1);
             reverse = true;
@@ -97,7 +104,7 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
         GameObject inv=Instantiate(newInvader,position,new Quaternion(0,0,rotation,0));
         inv.GetComponent<Invader>().myCamera = myCamera;
         inv.GetComponent<Invader>().ReverseSpeed(reverse);
-        if (Random.Range(0f, 1f) >= 0.9f)
+        if (Random.Range(0f, 1f) >= boostTreshold)
         {
             inv.GetComponent<Invader>().Boost();
         }
@@ -105,7 +112,7 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
 
     void GameIntro()
     {
-        if (Input.touchCount != 0 && !hasStarted)
+        if (Input.touchCount != 0 && !hasStarted && !(startText1 is null))
         {
             hasStarted = true;
             readyText1 = Instantiate(readyText, transform);

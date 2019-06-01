@@ -58,7 +58,7 @@ public class Ship : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<ExplodedInvader>() != null)// if collide with expolded invader
         {
-            myPlayer.GetComponent<MolePlayer>().AddScore(-10);
+            myPlayer.GetComponent<MolePlayer>().AddScore(-15);
             Destroy(collision.gameObject);
         }
     }

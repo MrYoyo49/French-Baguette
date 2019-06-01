@@ -340,6 +340,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1211486391}
     m_Modifications:
+    - target: {fileID: 3588014607512754153, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
+        type: 3}
+      propertyPath: m_Name
+      value: ResumeButton
+      objectReference: {fileID: 0}
     - target: {fileID: 1015130421582452254, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -444,11 +449,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3588014607512754153, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
-        type: 3}
-      propertyPath: m_Name
-      value: ResumeButton
       objectReference: {fileID: 0}
     - target: {fileID: 7743325924731206516, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
         type: 3}
@@ -715,6 +715,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1754673070}
     m_Modifications:
+    - target: {fileID: 8651899202141283553, guid: 708f61106c0f5414b865914a763d45f5,
+        type: 3}
+      propertyPath: m_Name
+      value: Pause
+      objectReference: {fileID: 0}
     - target: {fileID: 8651899202141283552, guid: 708f61106c0f5414b865914a763d45f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -819,11 +824,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8651899202141283553, guid: 708f61106c0f5414b865914a763d45f5,
-        type: 3}
-      propertyPath: m_Name
-      value: Pause
       objectReference: {fileID: 0}
     - target: {fileID: 8651899202141283555, guid: 708f61106c0f5414b865914a763d45f5,
         type: 3}
@@ -1165,7 +1165,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.005970001, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1211486392
@@ -1420,7 +1420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 309}
+  m_AnchoredPosition: {x: 0, y: -130}
   m_SizeDelta: {x: 1086.5, y: 264.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1453060647
@@ -1577,7 +1577,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 309}
+  m_AnchoredPosition: {x: 0, y: -130}
   m_SizeDelta: {x: 1086.5, y: 264.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1530026293
@@ -1736,8 +1736,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0029907, y: 0.87500954}
-  m_SizeDelta: {x: 1920, y: 1081.8}
+  m_AnchoredPosition: {x: 0, y: 270}
+  m_SizeDelta: {x: 1920, y: 546}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1641983528
 MonoBehaviour:
@@ -1827,6 +1827,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1211486391}
     m_Modifications:
+    - target: {fileID: 3588014607512754153, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
+        type: 3}
+      propertyPath: m_Name
+      value: ExitButton
+      objectReference: {fileID: 0}
     - target: {fileID: 1015130421582452254, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1931,11 +1936,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3588014607512754153, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
-        type: 3}
-      propertyPath: m_Name
-      value: ExitButton
       objectReference: {fileID: 0}
     - target: {fileID: 7743325924731206516, guid: 0a29d4ee0494d4948a8e8cc656f53bbc,
         type: 3}
@@ -2305,7 +2305,7 @@ RectTransform:
   m_GameObject: {fileID: 1831674157}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.00008, y: 1.00008, z: 1.00008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1530026292}
   m_Father: {fileID: 1754673070}
@@ -2313,8 +2313,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.6, y: 0.9}
-  m_SizeDelta: {x: 1917.7, y: 1081.7}
+  m_AnchoredPosition: {x: 0, y: -270}
+  m_SizeDelta: {x: 1920, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1831674159
 MonoBehaviour:
@@ -2372,11 +2372,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1754673070}
     m_Modifications:
-    - target: {fileID: 159239266744099217, guid: 2ce28d35cb6809549b0eec9b1758e068,
-        type: 3}
-      propertyPath: m_Name
-      value: SpaceInvaderController
-      objectReference: {fileID: 0}
     - target: {fileID: 159239266744099222, guid: 2ce28d35cb6809549b0eec9b1758e068,
         type: 3}
       propertyPath: ship1
@@ -2417,6 +2412,11 @@ PrefabInstance:
       propertyPath: gameOverUI2
       value: 
       objectReference: {fileID: 1831674157}
+    - target: {fileID: 159239266744099217, guid: 2ce28d35cb6809549b0eec9b1758e068,
+        type: 3}
+      propertyPath: m_Name
+      value: SpaceInvaderController
+      objectReference: {fileID: 0}
     - target: {fileID: 159239266744099223, guid: 2ce28d35cb6809549b0eec9b1758e068,
         type: 3}
       propertyPath: m_LocalPosition.x
