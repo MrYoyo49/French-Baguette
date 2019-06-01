@@ -27,12 +27,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/Credits.unity
     guid: 5c9f0861a75a8534ca81b03c303fa726
   - enabled: 1
-    path: Assets/Scenes/WhackAMole.unity
+    path: Assets/Scenes/Games/WhackAMole.unity
     guid: 5750495adf269ea4f8f860ddfc41c154
   - enabled: 1
-    path: Assets/Scenes/SpaceInvader.unity
+    path: Assets/Scenes/Games/SpaceInvader.unity
     guid: e48dfcad553cd3d49b4bbf84c8a7b48b
   - enabled: 1
-    path: Assets/Scenes/Hockey.unity
+    path: Assets/Scenes/Games/Hockey.unity
     guid: 5ba5f0dab63f7df45bccee9702090286
+  - enabled: 1
+    path: Assets/Scenes/Menus/Winner Challenge.unity
+    guid: 78a4cb726fd38fb408c4cb627d5de54a
   m_configObjects: {}

@@ -11,7 +11,7 @@ public class Mole : MonoBehaviour
     int speedBonusScore = 100;//decrease each fixed amount of time
     public float maxUpLimit, newY, initialY,speedBonusScoreDecreaseRate;
     Sprite mySprite;
-    float movingSpeed = 0.04f * WhackAMoleController.globalSpeedModifier; //world unit per second
+    float movingSpeed = 1.5f * WhackAMoleController.globalSpeedModifier; //world unit per second
     bool reachedTop = false;
     AudioSource hitSound;
     //Text scoreText;
@@ -44,15 +44,11 @@ public class Mole : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    private void FixedUpdate()
-    {
         speedBonusScore--;
         if (newY >= maxUpLimit)//check if should stop going up
             reachedTop = true;
         if (!reachedTop)//move up if still inside the hole
-            newY += movingSpeed;
+            newY += movingSpeed * Time.deltaTime;
         else
         {
             if (newY <= initialY) //destroy if reaches bottom
@@ -60,11 +56,13 @@ public class Mole : MonoBehaviour
                 myHole.SetEmpty();
                 Destroy(gameObject);
             }
-            newY -= movingSpeed; // else move down
+            newY -= movingSpeed * Time.deltaTime; // else move down
         }
 
         this.transform.position = new Vector2(this.transform.position.x, newY);//move the mole
+        CheckTouch();
     }
+
 
     public void SetHole(Hole hole)
     {
@@ -74,16 +72,29 @@ public class Mole : MonoBehaviour
     {
         myPlayer = player;
     }
-
-    void OnMouseDown()
+    void CheckTouch()
     {
+        if (Input.touchCount != 0)
+        {
+            foreach (Touch touch in Input.touches)
+            {
+                Vector2 pos = Camera.main.ScreenToWorldPoint(touch.position);
+                RaycastHit2D ray =  Physics2D.CircleCast(pos, 0.1f,Vector2.zero, 0f);
+                if ((ray.collider!=null?ray.collider.gameObject == gameObject:false) && pos.y >= myHole.transform.position.y-myHole.gameObject.GetComponent<SpriteRenderer>().bounds.extents.y)
+                {
+                    OnTouch();
+                }
+
+            }
+
+        }
+    }
+    void OnTouch() { 
         myHole.SetEmpty();
         if (myPlayer != null)
         {
             myPlayer.AddScore(baseScore+speedBonusScore);
         }
-        //Instantiate(scoreText);
-        //hitSound.Play();
         Destroy(gameObject);
     }
 }

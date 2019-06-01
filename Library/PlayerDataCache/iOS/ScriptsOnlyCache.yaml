@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Boundaries
+    - Challenge
     - Countdown
     - Direction
     - DisplayWinner
@@ -26,6 +27,7 @@ ScriptsOnlyBuild:
     - TimedAutoDestruction
     - WhackAMoleController
     - quit
+    - windisplay
     GitHub.Unity.45.dll:
     - GitHub.Unity.ApplicationCache
     - GitHub.Unity.EnvironmentCache
@@ -69,7 +71,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
   sceneClasses:
-    Assets/Scenes/Hockey.unity:
+    Assets/Scenes/Games/Hockey.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -85,6 +87,8 @@ ScriptsOnlyBuild:
     - Class: 50
       Script: {instanceID: 0}
     - Class: 58
+      Script: {instanceID: 0}
+    - Class: 60
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
@@ -107,9 +111,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11292}
     - Class: 114
+      Script: {instanceID: 11308}
+    - Class: 114
       Script: {instanceID: 11354}
     - Class: 114
       Script: {instanceID: 11408}
+    - Class: 114
+      Script: {instanceID: 11524}
     - Class: 114
       Script: {instanceID: 11544}
     - Class: 114
@@ -123,7 +131,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11936}
     - Class: 114
+      Script: {instanceID: 12050}
+    - Class: 114
       Script: {instanceID: 12218}
+    - Class: 114
+      Script: {instanceID: 12272}
     - Class: 114
       Script: {instanceID: 12368}
     - Class: 114
@@ -143,6 +155,10 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13154}
     - Class: 114
+      Script: {instanceID: 13482}
+    - Class: 114
+      Script: {instanceID: 13562}
+    - Class: 114
       Script: {instanceID: 13580}
     - Class: 114
       Script: {instanceID: 13636}
@@ -161,6 +177,208 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Games/SpaceInvader.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 60
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11148}
+    - Class: 114
+      Script: {instanceID: 11308}
+    - Class: 114
+      Script: {instanceID: 11354}
+    - Class: 114
+      Script: {instanceID: 11408}
+    - Class: 114
+      Script: {instanceID: 11524}
+    - Class: 114
+      Script: {instanceID: 11544}
+    - Class: 114
+      Script: {instanceID: 11552}
+    - Class: 114
+      Script: {instanceID: 11672}
+    - Class: 114
+      Script: {instanceID: 11902}
+    - Class: 114
+      Script: {instanceID: 11936}
+    - Class: 114
+      Script: {instanceID: 12050}
+    - Class: 114
+      Script: {instanceID: 12218}
+    - Class: 114
+      Script: {instanceID: 12272}
+    - Class: 114
+      Script: {instanceID: 12368}
+    - Class: 114
+      Script: {instanceID: 12482}
+    - Class: 114
+      Script: {instanceID: 12742}
+    - Class: 114
+      Script: {instanceID: 12764}
+    - Class: 114
+      Script: {instanceID: 12942}
+    - Class: 114
+      Script: {instanceID: 13000}
+    - Class: 114
+      Script: {instanceID: 13084}
+    - Class: 114
+      Script: {instanceID: 13112}
+    - Class: 114
+      Script: {instanceID: 13154}
+    - Class: 114
+      Script: {instanceID: 13482}
+    - Class: 114
+      Script: {instanceID: 13492}
+    - Class: 114
+      Script: {instanceID: 13562}
+    - Class: 114
+      Script: {instanceID: 13580}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Games/WhackAMole.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 45
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 60
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11148}
+    - Class: 114
+      Script: {instanceID: 11218}
+    - Class: 114
+      Script: {instanceID: 11308}
+    - Class: 114
+      Script: {instanceID: 11354}
+    - Class: 114
+      Script: {instanceID: 11408}
+    - Class: 114
+      Script: {instanceID: 11524}
+    - Class: 114
+      Script: {instanceID: 11544}
+    - Class: 114
+      Script: {instanceID: 11552}
+    - Class: 114
+      Script: {instanceID: 11672}
+    - Class: 114
+      Script: {instanceID: 11902}
+    - Class: 114
+      Script: {instanceID: 11936}
+    - Class: 114
+      Script: {instanceID: 12050}
+    - Class: 114
+      Script: {instanceID: 12218}
+    - Class: 114
+      Script: {instanceID: 12272}
+    - Class: 114
+      Script: {instanceID: 12368}
+    - Class: 114
+      Script: {instanceID: 12482}
+    - Class: 114
+      Script: {instanceID: 12742}
+    - Class: 114
+      Script: {instanceID: 12942}
+    - Class: 114
+      Script: {instanceID: 12956}
+    - Class: 114
+      Script: {instanceID: 13000}
+    - Class: 114
+      Script: {instanceID: 13084}
+    - Class: 114
+      Script: {instanceID: 13112}
+    - Class: 114
+      Script: {instanceID: 13154}
+    - Class: 114
+      Script: {instanceID: 13482}
+    - Class: 114
+      Script: {instanceID: 13562}
+    - Class: 114
+      Script: {instanceID: 13580}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 210
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 331
       Script: {instanceID: 0}
     Assets/Scenes/Menus/Credits.unity:
     - Class: 1
@@ -470,84 +688,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 11148}
-    - Class: 114
-      Script: {instanceID: 11308}
-    - Class: 114
-      Script: {instanceID: 11354}
-    - Class: 114
-      Script: {instanceID: 11408}
-    - Class: 114
-      Script: {instanceID: 11544}
-    - Class: 114
-      Script: {instanceID: 11672}
-    - Class: 114
-      Script: {instanceID: 11902}
-    - Class: 114
-      Script: {instanceID: 11936}
-    - Class: 114
-      Script: {instanceID: 12218}
-    - Class: 114
-      Script: {instanceID: 12482}
-    - Class: 114
-      Script: {instanceID: 12742}
-    - Class: 114
-      Script: {instanceID: 12924}
-    - Class: 114
-      Script: {instanceID: 13000}
-    - Class: 114
-      Script: {instanceID: 13084}
-    - Class: 114
-      Script: {instanceID: 13112}
-    - Class: 114
-      Script: {instanceID: 13482}
-    - Class: 114
-      Script: {instanceID: 13580}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 212
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/SpaceInvader.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
     - Class: 50
       Script: {instanceID: 0}
     - Class: 60
-      Script: {instanceID: 0}
-    - Class: 61
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
@@ -572,8 +715,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11544}
     - Class: 114
-      Script: {instanceID: 11552}
-    - Class: 114
       Script: {instanceID: 11672}
     - Class: 114
       Script: {instanceID: 11902}
@@ -586,13 +727,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12272}
     - Class: 114
+      Script: {instanceID: 12368}
+    - Class: 114
       Script: {instanceID: 12482}
     - Class: 114
       Script: {instanceID: 12742}
     - Class: 114
-      Script: {instanceID: 12764}
-    - Class: 114
-      Script: {instanceID: 12942}
+      Script: {instanceID: 12924}
     - Class: 114
       Script: {instanceID: 13000}
     - Class: 114
@@ -600,11 +741,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13112}
     - Class: 114
-      Script: {instanceID: 13492}
+      Script: {instanceID: 13154}
+    - Class: 114
+      Script: {instanceID: 13482}
     - Class: 114
       Script: {instanceID: 13562}
     - Class: 114
       Script: {instanceID: 13580}
+    - Class: 114
+      Script: {instanceID: 14800}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -621,7 +766,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
-    Assets/Scenes/WhackAMole.unity:
+    Assets/Scenes/Menus/Winner Challenge.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -632,19 +777,19 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 28
       Script: {instanceID: 0}
-    - Class: 45
-      Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 58
+      Script: {instanceID: 0}
     - Class: 60
+      Script: {instanceID: 0}
+    - Class: 62
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
-      Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
-    - Class: 83
       Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
@@ -655,33 +800,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11148}
     - Class: 114
-      Script: {instanceID: 11218}
+      Script: {instanceID: 11292}
     - Class: 114
       Script: {instanceID: 11308}
     - Class: 114
-      Script: {instanceID: 11354}
-    - Class: 114
       Script: {instanceID: 11408}
     - Class: 114
-      Script: {instanceID: 11544}
+      Script: {instanceID: 11524}
     - Class: 114
-      Script: {instanceID: 11552}
+      Script: {instanceID: 11544}
     - Class: 114
       Script: {instanceID: 11672}
     - Class: 114
       Script: {instanceID: 11902}
     - Class: 114
+      Script: {instanceID: 11904}
+    - Class: 114
       Script: {instanceID: 11936}
     - Class: 114
+      Script: {instanceID: 12050}
+    - Class: 114
       Script: {instanceID: 12218}
+    - Class: 114
+      Script: {instanceID: 12272}
+    - Class: 114
+      Script: {instanceID: 12368}
     - Class: 114
       Script: {instanceID: 12482}
     - Class: 114
       Script: {instanceID: 12742}
     - Class: 114
-      Script: {instanceID: 12942}
+      Script: {instanceID: 12924}
     - Class: 114
-      Script: {instanceID: 12956}
+      Script: {instanceID: 12942}
     - Class: 114
       Script: {instanceID: 13000}
     - Class: 114
@@ -689,16 +840,22 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13112}
     - Class: 114
+      Script: {instanceID: 13154}
+    - Class: 114
       Script: {instanceID: 13482}
     - Class: 114
+      Script: {instanceID: 13562}
+    - Class: 114
       Script: {instanceID: 13580}
+    - Class: 114
+      Script: {instanceID: 14798}
+    - Class: 114
+      Script: {instanceID: 14800}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 157
-      Script: {instanceID: 0}
-    - Class: 210
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -709,8 +866,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 331
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -1417,7 +1572,7 @@ ScriptsOnlyBuild:
     className: TextMeshSpawner
   - hash:
       serializedVersion: 2
-      Hash: c1745464e07091838a183a5488e51b9f
+      Hash: 23e4edc90f6ed2d22c1336431742c35f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HockeyController
@@ -1537,7 +1692,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 7fdfb990896e2525bb29132f8ae88b1e
+      Hash: 2e0fca2bd833bfcd178543a19a632aa8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WhackAMoleController
@@ -1579,7 +1734,7 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: 30160df58fdfbbb3b0bd51f3907b903a
+      Hash: 4a51508da6d68001cb14d7772e0ae0bf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpaceInvaderGenerateInvaders
@@ -1615,7 +1770,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: 35d8ae6257dff397fb79590d6c83a38d
+      Hash: 3ba0e3c99cfd0c9fe3bba24fe445c9e9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Scores
@@ -1631,6 +1786,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 2d9c0850ed2eda49ad7f5d01ad23bd84
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: windisplay
+  - hash:
+      serializedVersion: 2
+      Hash: 5b0c6c20ecda314f177c9fb042862db0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Challenge
   platform: 9
   scenePathNames:
   - Assets/Scenes/Menus/Main menu.unity
@@ -1639,7 +1806,8 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Menus/Settings.unity
   - Assets/Scenes/Menus/Score.unity
   - Assets/Scenes/Menus/Credits.unity
-  - Assets/Scenes/WhackAMole.unity
-  - Assets/Scenes/SpaceInvader.unity
-  - Assets/Scenes/Hockey.unity
+  - Assets/Scenes/Games/WhackAMole.unity
+  - Assets/Scenes/Games/SpaceInvader.unity
+  - Assets/Scenes/Games/Hockey.unity
+  - Assets/Scenes/Menus/Winner Challenge.unity
   playerPath: D:/mathi/Documents/Unity/BuildIOS

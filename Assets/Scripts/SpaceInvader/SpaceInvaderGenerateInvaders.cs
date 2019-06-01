@@ -10,11 +10,11 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
     public GameObject invader, ship1,ship2;
     public Camera myCamera;
     float initialTime = 60, remainingTime;
-    static bool GameIsEnded = false;
+    static bool GameIsEnded = false, challbool=false;
     public GameObject playerObject;
     GameObject player1, player2;
     public Color player1Color, player2Color;
-    public GameObject TextGO1, TextGO2, RemainingTime, secLeftUI, backgroundText, readyText, gameOverUI;
+    public GameObject TextGO1, TextGO2, RemainingTime, secLeftUI, backgroundText, readyText, gameOverUI, gameOverUI2;
     public Sprite player1Sprite, player2Sprite;
     GameObject startText1, startText2, readyText1, readyText2;
     bool hasStarted = false, countdown = false, fullStart = false, lastSprintEnabled = false;
@@ -55,8 +55,17 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
         }
         if (remainingTime <= 0)
             GameOver();
-        if (GameIsEnded && Input.touchCount != 0)
+        if (GameIsEnded && Input.touchCount != 0 && challbool == false)
+        {
             SceneManager.LoadScene(backScene);
+            setboolsfalse();
+        }
+        else if (GameIsEnded && Input.touchCount != 0 && challbool)
+        {
+            setboolsfalse();
+            Challenge.setval(getwin());
+            SceneManager.LoadScene(Challenge.gamerd());
+        }
     }
     private void FixedUpdate()
     {
@@ -128,15 +137,21 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
     void GameOver()
     {
         gameOverUI.SetActive(true);
+        gameOverUI2.SetActive(true);
         GameIsEnded = true;
         Time.timeScale = 0;
         if (GetWinner() != null)
         {
             gameOverUI.GetComponentInChildren<TextMeshProUGUI>().text = "Winner is\n" + GetWinner().GetComponent<MolePlayer>().GetName() + " !";
             gameOverUI.GetComponentInChildren<TextMeshProUGUI>().color = GetWinner().GetComponent<MolePlayer>().GetColor();
+            gameOverUI2.GetComponentInChildren<TextMeshProUGUI>().text = "Winner is\n" + GetWinner().GetComponent<MolePlayer>().GetName() + " !";
+            gameOverUI2.GetComponentInChildren<TextMeshProUGUI>().color = GetWinner().GetComponent<MolePlayer>().GetColor();
         }
         else
+        {
             gameOverUI.GetComponentInChildren<TextMeshProUGUI>().text = "Equality !";
+            gameOverUI2.GetComponentInChildren<TextMeshProUGUI>().text = "Equality !";
+        }
     }
     public bool HasStarted()
     {
@@ -154,5 +169,25 @@ public class SpaceInvaderGenerateInvaders : MonoBehaviour
     public static bool GetGameIsEnded()
     {
         return GameIsEnded;
+    }
+
+    public void setboolsfalse()
+    {
+        hasStarted = countdown = fullStart = GameIsEnded = lastSprintEnabled = false;
+    }
+
+    public void chall(bool enable)
+    {
+        challbool = enable;
+    }
+
+    public string getwin()
+    {
+        if (player1.GetComponent<MolePlayer>().GetScore() > player2.GetComponent<MolePlayer>().GetScore())
+            return "blue";
+        else if (player1.GetComponent<MolePlayer>().GetScore() < player2.GetComponent<MolePlayer>().GetScore())
+            return "red";
+        else
+            return "equal";
     }
 }

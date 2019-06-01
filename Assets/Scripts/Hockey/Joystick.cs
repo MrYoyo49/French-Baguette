@@ -44,7 +44,7 @@ public class Joystick : MonoBehaviour
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.touchCount != 0)
+        if (Input.touchCount != 0 && GetComponent<HockeyController>().getStart())
         {
             foreach (Touch touch in Input.touches)
             {

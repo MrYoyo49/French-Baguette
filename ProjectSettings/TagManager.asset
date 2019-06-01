@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hole
   - Controller
+  - Clickable
   layers:
   - Default
   - TransparentFX

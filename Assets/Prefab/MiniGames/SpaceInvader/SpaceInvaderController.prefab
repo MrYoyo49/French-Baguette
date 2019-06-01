@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &159239266744099217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 159239266744099223}
+  - component: {fileID: 159239266744099216}
+  - component: {fileID: 159239266744099222}
+  m_Layer: 5
+  m_Name: SpaceInvaderController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &159239266744099223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159239266744099217}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &159239266744099216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159239266744099217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e66c0d541cb39942ba35fe8a0470a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship1: {fileID: 0}
+  ship2: {fileID: 0}
+  myCamera: {fileID: 0}
+--- !u!114 &159239266744099222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159239266744099217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd45032fa45325f478ca7d6b97eebf1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invader: {fileID: 7188881406022771876, guid: 0191f6bd751537243810de7e2aec34d5, type: 3}
+  ship1: {fileID: 0}
+  ship2: {fileID: 0}
+  myCamera: {fileID: 0}
+  playerObject: {fileID: 4887490279128905377, guid: 11e7b2e5a4d281240a70ea51c77b461f,
+    type: 3}
+  player1Color: {r: 0.105882354, g: 0.57254905, b: 0.8862745, a: 1}
+  player2Color: {r: 0.8862745, g: 0.11372549, b: 0.11372549, a: 1}
+  TextGO1: {fileID: 0}
+  TextGO2: {fileID: 0}
+  RemainingTime: {fileID: 0}
+  secLeftUI: {fileID: 4489529420830527178, guid: ab0a720264ec8754fafd658c0fabd9b1,
+    type: 3}
+  backgroundText: {fileID: 7506474372903377380, guid: 7ea3866f84ea4f1429a23256c2b8f9e9,
+    type: 3}
+  readyText: {fileID: 2449465848859991093, guid: 9b923fc5f7bde1242a81f19ad6c8f81e,
+    type: 3}
+  gameOverUI: {fileID: 0}
+  gameOverUI2: {fileID: 0}
+  player1Sprite: {fileID: 21300000, guid: d60a873524a555c4e879949a317a9770, type: 3}
+  player2Sprite: {fileID: 21300000, guid: 7d3d59db638958244bd0812044d584cc, type: 3}
+  backScene: MultiGames

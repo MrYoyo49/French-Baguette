@@ -10,11 +10,13 @@ public class HockeyController : MonoBehaviour
     public GameObject player1, player2;
     public Sprite player1moleSprite, player2moleSprite;
     public MolePlayer playerObject;
-    public GameObject TextGO1, TextGO2, RemainingTime1, RemainingTime2, backgroundText, readyText, gameOverUI;
+    public GameObject TextGO1, TextGO2, RemainingTime1, RemainingTime2, backgroundText, readyText, gameOverUI, gameOverUI2;
     public Color player1Color, player2Color;
     GameObject startText1, startText2, readyText1, readyText2;
-    bool hasStarted = false, countdown = false, fullStart = false;
+    static bool fullStart = false,challbool = false; 
+    bool countdown = false, hasStarted = false ;
     public string backScene;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -30,34 +32,51 @@ public class HockeyController : MonoBehaviour
         startText2.transform.position = new Vector2(0, height / 1.6f);
         startText2.transform.rotation = new Quaternion(0, 0, 180, 0);
         startText2.GetComponentInChildren<TextMeshProUGUI>().text = "Move your pusher <sprite=\"Icons\" name=redPuck> and send the puck <sprite=\"Icons\" name=puck> into your opponent goal !";
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         GameIntro();
+        remainingTime -= Time.deltaTime;
         if (remainingTime <= 0)
             GameOver();
-        if (GameIsEnded && Input.touchCount != 0)
+        if (GameIsEnded && Input.touchCount != 0 && challbool==false)
+        {
             SceneManager.LoadScene(backScene);
-    }
+            setboolsfalse();
+        }
+        else if (GameIsEnded && Input.touchCount != 0 && challbool)
+        {
+            setboolsfalse();
+            Challenge.setval(getwin());
+            SceneManager.LoadScene(Challenge.gamerd());
+        }
+}
 
     private void FixedUpdate()
     {
-        remainingTime -= Time.deltaTime;
+
     }
     void GameOver()
     {
         gameOverUI.SetActive(true);
+        gameOverUI2.SetActive(true);
         GameIsEnded = true;
         Time.timeScale = 0;
         if (GetWinner() != null)
         {
             gameOverUI.GetComponentInChildren<TextMeshProUGUI>().text = "Winner is\n" + GetWinner().GetName() + " !";
             gameOverUI.GetComponentInChildren<TextMeshProUGUI>().color = GetWinner().GetColor();
+            gameOverUI2.GetComponentInChildren<TextMeshProUGUI>().text = "Winner is\n" + GetWinner().GetName() + " !";
+            gameOverUI2.GetComponentInChildren<TextMeshProUGUI>().color = GetWinner().GetColor();
         }
         else
+        { 
             gameOverUI.GetComponentInChildren<TextMeshProUGUI>().text = "Equality !";
+            gameOverUI2.GetComponentInChildren<TextMeshProUGUI>().text = "Equality !";
+        }
     }
     void GameIntro()
     {
@@ -107,5 +126,30 @@ public class HockeyController : MonoBehaviour
     public static bool GetGameIsEnded()
     {
         return GameIsEnded;
+    }
+
+    public bool getStart()
+    {
+        return fullStart;
+    }
+
+    public void setboolsfalse()
+    {
+        GameIsEnded = fullStart = countdown = hasStarted = false;
+    }
+
+    public void chall(bool enable)
+    {
+        challbool = enable;
+    }
+
+    public string getwin()
+    {
+        if (player1.GetComponent<MolePlayer>().GetScore() > player2.GetComponent<MolePlayer>().GetScore())
+            return "blue";
+        else if (player1.GetComponent<MolePlayer>().GetScore() < player2.GetComponent<MolePlayer>().GetScore())
+            return "red";
+        else
+            return "equal";
     }
 }

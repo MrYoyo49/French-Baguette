@@ -9,11 +9,11 @@ public class WhackAMoleController : MonoBehaviour
     float initialTime = 60, remainingTime;
     private float nextSpawn = 1;
     private Hole[] holesList;
-    static bool GameIsEnded = false;
+    static bool GameIsEnded = false, challbool=false;
     MolePlayer player1, player2;
     public Sprite player1moleSprite, player2moleSprite;
     public MolePlayer playerObject;
-    public GameObject TextGO1, TextGO2, RemainingTime, secLeftUI, backgroundText, readyText, gameOverUI;
+    public GameObject TextGO1, TextGO2, RemainingTime, secLeftUI, backgroundText, readyText, gameOverUI, gameOverUI2;
     public Color player1Color, player2Color;
     GameObject startText1, startText2, readyText1,readyText2;
     public string player1Helmet, player2Helmet;
@@ -79,8 +79,17 @@ public class WhackAMoleController : MonoBehaviour
             GameOver();
         if (nextSpawn <0)
             SpawnMoles(holesList);
-        if (GameIsEnded && Input.touchCount!=0)
+        if (GameIsEnded && Input.touchCount != 0 && challbool == false)
+        {
             SceneManager.LoadScene(backScene);
+            setboolsfalse();
+        }
+        else if (GameIsEnded && Input.touchCount != 0 && challbool)
+        {
+            setboolsfalse();
+            Challenge.setval(getwin());
+            SceneManager.LoadScene(Challenge.gamerd());
+        }
     }
 
     private void FixedUpdate()
@@ -98,15 +107,21 @@ public class WhackAMoleController : MonoBehaviour
     void GameOver()
     {
         gameOverUI.SetActive(true);
+        gameOverUI2.SetActive(true);
         GameIsEnded = true;
         Time.timeScale = 0;
         if (GetWinner() != null)
         {
             gameOverUI.GetComponentInChildren<TextMeshProUGUI>().text = "Winner is\n" + GetWinner().GetName() + " !";
             gameOverUI.GetComponentInChildren<TextMeshProUGUI>().color = GetWinner().GetColor();
+            gameOverUI2.GetComponentInChildren<TextMeshProUGUI>().text = "Winner is\n" + GetWinner().GetName() + " !";
+            gameOverUI2.GetComponentInChildren<TextMeshProUGUI>().color = GetWinner().GetColor();
         }
         else
+        {
             gameOverUI.GetComponentInChildren<TextMeshProUGUI>().text = "Equality !";
+            gameOverUI2.GetComponentInChildren<TextMeshProUGUI>().text = "Equality !";
+        }
     }
     void GameIntro()
     {
@@ -222,5 +237,25 @@ public class WhackAMoleController : MonoBehaviour
     public static  bool GetGameIsEnded()
     {
         return GameIsEnded;
+    }
+
+    public void setboolsfalse()
+    {
+        hasStarted = countdown = fullStart = lastSprintEnabled = GameIsEnded = false;
+    }
+
+    public void chall(bool enable)
+    {
+        challbool = enable;
+    }
+
+    public string getwin()
+    {
+        if (player1.GetComponent<MolePlayer>().GetScore() > player2.GetComponent<MolePlayer>().GetScore())
+            return "blue";
+        else if (player1.GetComponent<MolePlayer>().GetScore() < player2.GetComponent<MolePlayer>().GetScore())
+            return "red";
+        else
+            return "equal";
     }
 }

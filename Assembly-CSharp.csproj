@@ -66,10 +66,12 @@
     <Compile Include="Assets\Scripts\Hockey\Joystick.cs" />
     <Compile Include="Assets\Scripts\Hockey\MovePuck.cs" />
     <Compile Include="Assets\Scripts\Hockey\Scores.cs" />
+    <Compile Include="Assets\Scripts\Menu\Challenge.cs" />
     <Compile Include="Assets\Scripts\Menu\GoToSettings.cs" />
     <Compile Include="Assets\Scripts\Menu\KeepMusic.cs" />
     <Compile Include="Assets\Scripts\Menu\ScreenRotate.cs" />
     <Compile Include="Assets\Scripts\Menu\quit.cs" />
+    <Compile Include="Assets\Scripts\Menu\windisplay.cs" />
     <Compile Include="Assets\Scripts\SpaceInvader\ExplodedInvader.cs" />
     <Compile Include="Assets\Scripts\SpaceInvader\Invader.cs" />
     <Compile Include="Assets\Scripts\SpaceInvader\InvaderPlayer.cs" />

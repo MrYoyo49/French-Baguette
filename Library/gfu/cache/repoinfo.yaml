@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 1
-  lastUpdatedAtString: 2019-05-31T16:15:13.525+03:00
-  initializedAtString: 2019-05-31T16:15:13.525+03:00
+  lastUpdatedAtString: 2019-06-01T12:43:54.848+03:00
+  initializedAtString: 2019-06-01T12:43:54.848+03:00
   currentGitRemote:
     name: origin
     url: https://github.com/MrYoyo49/French-Baguette.git
@@ -25,13 +25,13 @@ MonoBehaviour:
     token: 
   currentGitBranch:
     name: Sprint
-    tracking: 
+    tracking: origin/Sprint
   currentConfigBranch:
     name: Sprint
     remote:
-      name: 
-      url: 
-    trackingBranch: 
+      name: origin
+      url: https://github.com/MrYoyo49/French-Baguette.git
+    trackingBranch: Sprint
   currentConfigRemote:
     name: origin
     url: https://github.com/MrYoyo49/French-Baguette.git
